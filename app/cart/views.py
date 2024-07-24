@@ -4,7 +4,6 @@ from shop.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
 
-# Create your views here.
 
 @require_POST
 def cart_add(request, product_id):
@@ -26,6 +25,7 @@ def cart_remove(request, product_id):
     cart.remove(product)
     return redirect('cart:cart_detail')
 
+
 def cart_detail(request):
     cart = Cart(request)
-    return render(request, 'cart/detail.html', {'cart':cart})
+    return render(request, 'cart/detail.html', {'cart': cart})
